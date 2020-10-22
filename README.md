@@ -16,7 +16,7 @@ plugins: 插件的范围包括，从打包优化和压缩；
 
 更多配置可以根据自己的需求参考官网：https://www.webpackjs.com/concepts/
 
-### 2、JSX语法是怎么解析的？
+## 2、JSX语法是怎么解析的？
 
 首先来了解下什么是JSX和它的解析规则：JSX就是JavaScript和XML结合的一种格式。React发明了JSX，利用HTML语法来创建虚拟DOM。当遇到"<"，JSX就当HTML解析，遇到 “{” 就当JavaScript解析。
 
@@ -68,7 +68,7 @@ React.createElement("div", {}, ...chidren)
 ④创建ToyReact.createElement("div", {}, ...children)表达式
 ⑤替换node
 
-### 3、ToyReact生命周期和在生命周期内都发生了什么？
+## 3、ToyReact生命周期和在生命周期内都发生了什么？
 
 理解这个问题前，先了解下React的生命周期函数：
 ```
@@ -84,7 +84,7 @@ React.createElement("div", {}, ...chidren)
 
 回归到课程上面 ，在class里面有mountTo() 和 update()这样两个函数，不妨来猜测下它们的作用。和React本身的生命周期对应起来就是在挂载之前需要的操作和更新的时候需要的操作。那么在挂载之前做了什么：通过setAttribute添加自定义的属性，addEventListener添加事件；然后就会执行一次render；如果有更新操作，就会在update()内会通过对比对更新的元素进行替换；再次render。
 
-### 4、Range对象的简单了解和使用
+## 4、Range对象的简单了解和使用
 
 在进行虚拟DOM的操作的时候我们用到了Range对象，那么Range对象是什么？可以用来做什么？
 
@@ -94,7 +94,7 @@ Range的应用场景常见的是在做一些富文本编辑器相关的操作的
 
 首先会创建一个range对象(createRange)，将指定节点的终点位置指定为Range对象所代表区域的起点位置(setStartAfter)；紧接着将指定的节点插入到某个Range对象所代表的区域中，插入位置为Range对象所代表区域的起点位置，如果该节点已经存在于页面中，该节点将被移动到Range对象代表的区域的起点处(insertNode)。
 
-### 5.虚拟DOM的一般作用于什么场景？ToyReact里面是如何实践的？
+## 5.虚拟DOM的一般作用于什么场景？ToyReact里面是如何实践的？
 
 React将DOM抽象为虚拟DOM，用JavaScript模拟一颗DOM树，放在浏览器内存中。当变更时，虚拟DOM使用DIFF算法进行新旧虚拟DOM的比较，将变更放到变更队列中，最终只把变化的部分重新渲染，从而提高渲染效率。
 
@@ -102,11 +102,11 @@ React将DOM抽象为虚拟DOM，用JavaScript模拟一颗DOM树，放在浏览�
 
 在课程中update()，也就是在更新元素的阶段，会先生成一个改变之后的DOM结构，然后对DOM树的type，props，chirdren等地方进行了对比，从而实现对整个DOM树的局部更新。
 
-### 尝试跑通 TicTacToe 最终代码
+## 尝试跑通 TicTacToe 最终代码
 
 > TicTacToe - 井字游戏 - 最终代码：https://codepen.io/gaearon/pen/gWWZgR
 
-### 基于 Range 重新渲染的坑？
+## 基于 Range 重新渲染的坑？
 
 数据更新时，基于 Range 重新渲染，由于元素插入位置的不同，`deleteContents` 时会删除不应该删除的节点。
 
